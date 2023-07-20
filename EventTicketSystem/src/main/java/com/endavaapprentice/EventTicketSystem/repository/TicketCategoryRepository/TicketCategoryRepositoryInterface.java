@@ -3,5 +3,5 @@ package com.endavaapprentice.EventTicketSystem.repository.TicketCategoryReposito
 import com.endavaapprentice.EventTicketSystem.domain.Entity.TicketCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TicketCategoryInterface extends JpaRepository<TicketCategory, Long> {
+public interface TicketCategoryRepositoryInterface extends JpaRepository<TicketCategory, Long> {
 }
