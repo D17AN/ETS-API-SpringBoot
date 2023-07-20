@@ -15,10 +15,12 @@ public class LocationService implements LocationServiceInterface{
         this.locationRepository = locationRepository;
     }
 
+    @Override
     public Collection<Location> getAllLocation(){
         return this.locationRepository.findAll();
     }
 
+    @Override
     public Location getLocationById(Long locationId){
         return this.locationRepository.getReferenceById(locationId);
     }

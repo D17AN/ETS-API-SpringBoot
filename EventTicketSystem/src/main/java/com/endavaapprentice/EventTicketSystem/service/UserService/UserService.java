@@ -2,9 +2,11 @@ package com.endavaapprentice.EventTicketSystem.service.UserService;
 
 import com.endavaapprentice.EventTicketSystem.domain.Entity.User;
 import com.endavaapprentice.EventTicketSystem.repository.UserRepository.UserRepositoryInterface;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+@Service
 public class UserService implements UserServiceInterface{
 
         private UserRepositoryInterface userRepository;
