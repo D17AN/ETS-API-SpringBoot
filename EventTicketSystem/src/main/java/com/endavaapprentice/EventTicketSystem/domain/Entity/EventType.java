@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class EventType {
     private Long eventTypeID;
 
     @NotBlank(message = "The location type name cannot be empty!")
-    @Column(name = "eventTypeName")
+    @Column(name = "eventTypeName", unique = true)
     private String eventTypeName;
 
     @OneToMany(mappedBy = "eventType", cascade = CascadeType.ALL,
