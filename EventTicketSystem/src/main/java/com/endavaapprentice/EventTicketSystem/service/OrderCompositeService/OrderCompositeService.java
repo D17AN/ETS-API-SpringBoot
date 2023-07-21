@@ -57,12 +57,10 @@ public class OrderCompositeService implements OrderCompositeServiceInterface{
                 );
     }
 
-    @Override
     public List<OrderDTO> getAllOrdersOfUser(Long userID) {
         return orderService.getAllOrdersOfUser(userID);
     }
 
-    @Override
     public void save(Order order) {
         this.orderService.save(order);
     }
