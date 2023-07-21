@@ -42,6 +42,9 @@ public class Order {
     @Column(name = "totalPrice")
     private BigDecimal totalPrice;
 
+    public Order() {
+    }
+
     public Order(Long orderID, User user, TicketCategory ticketCategory,
                  LocalDateTime orderedAt, Integer numberOfTickets,
                  BigDecimal totalPrice) {

@@ -29,6 +29,9 @@ public class EventType {
         this.eventsList = eventsList;
     }
 
+    public EventType() {
+    }
+
     public Long getEventTypeID() {
         return eventTypeID;
     }

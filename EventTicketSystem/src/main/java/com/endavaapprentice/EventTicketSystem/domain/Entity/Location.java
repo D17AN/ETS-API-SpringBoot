@@ -39,6 +39,9 @@ public class Location {
         this.venue = venue;
     }
 
+    public Location() {
+    }
+
     public Long getLocationID() {
         return locationID;
     }

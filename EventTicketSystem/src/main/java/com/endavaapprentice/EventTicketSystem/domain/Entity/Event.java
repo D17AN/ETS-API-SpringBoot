@@ -66,6 +66,9 @@ public class Event {
         this.ticketsCategoryList = ticketsCategoryList;
     }
 
+    public Event() {
+    }
+
     public Long getEventID() {
         return eventID;
     }
