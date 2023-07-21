@@ -44,6 +44,9 @@ public class Venue {
         this.eventsList = eventsList;
     }
 
+    public Venue() {
+    }
+
     public Long getVenueID() {
         return venueID;
     }

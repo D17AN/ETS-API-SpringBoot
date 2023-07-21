@@ -44,6 +44,9 @@ public class TicketCategory {
         this.ordersList = ordersList;
     }
 
+    public TicketCategory() {
+    }
+
     public Long getTicketCategoryID() {
         return ticketCategoryID;
     }

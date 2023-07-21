@@ -58,6 +58,9 @@ public class User {
         this.ordersList = ordersList;
     }
 
+    public User() {
+    }
+
     public Long getUserID() {
         return userID;
     }
