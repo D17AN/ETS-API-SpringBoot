@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "EventType")
+@Table(name = "[EventType]")
 public class EventType {
 
     @Id

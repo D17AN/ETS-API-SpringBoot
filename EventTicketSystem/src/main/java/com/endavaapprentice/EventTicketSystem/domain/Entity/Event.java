@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Event")
+@Table(name = "[Event]")
 public class Event {
 
     @Id
