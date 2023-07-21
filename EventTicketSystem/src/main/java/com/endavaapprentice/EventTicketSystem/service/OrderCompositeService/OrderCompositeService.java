@@ -38,13 +38,11 @@ public class OrderCompositeService implements OrderCompositeServiceInterface{
         TicketCategory ticketCategory = this.ticketCategoryService.getTicketCategoryByID(ticketCategoryID);
         BigDecimal ticketPrice = ticketCategory.getPrice();
         BigDecimal ticketsTotalPrice = ticketPrice.multiply(BigDecimal.valueOf(numberOfTickets));
-        Order order = Order.builder()
-                .user(user)
-                .ticketCategory(ticketCategory)
-                .orderedAt(LocalDateTime.now())
-                .numberOfTickets(numberOfTickets)
-                .totalPrice(ticketsTotalPrice)
-                .build();
+        Order order = new Order(
+                null, user,
+                ticketCategory, LocalDateTime.now(),
+                numberOfTickets, ticketsTotalPrice
+        );
 
         this.save(order);
 
