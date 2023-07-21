@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="Location")
+@Table(name="[Location]")
 public class Location {
 
     @Id

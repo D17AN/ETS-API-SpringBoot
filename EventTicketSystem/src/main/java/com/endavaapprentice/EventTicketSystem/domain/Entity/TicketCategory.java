@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "TicketCategory")
+@Table(name = "[TicketCategory]")
 public class TicketCategory {
 
     @Id

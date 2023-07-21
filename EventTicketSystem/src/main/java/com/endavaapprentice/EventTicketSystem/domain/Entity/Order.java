@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "Order")
+@Table(name = "[Order]")
 public class Order {
 
     @Id
