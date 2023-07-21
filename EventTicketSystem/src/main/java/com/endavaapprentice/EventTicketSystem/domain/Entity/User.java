@@ -5,17 +5,12 @@ import jakarta.validation.constraints.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.*;
 import org.hibernate.annotations.Check;
 
 import java.util.List;
 
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name = "[User]")
 public class User {
 
@@ -49,4 +44,86 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<Order> ordersList;
+
+    public User(Long userID, String userName,
+                String userEmail, String userRole,
+                String salt, String hashedPassword,
+                List<Order> ordersList) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userRole = userRole;
+        this.salt = salt;
+        this.hashedPassword = hashedPassword;
+        this.ordersList = ordersList;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
+    }
+
+    public List<Order> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Order> ordersList) {
+        this.ordersList = ordersList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userRole='" + userRole + '\'' +
+                ", salt='" + salt + '\'' +
+                ", hashedPassword='" + hashedPassword + '\'' +
+                ", ordersList=" + ordersList +
+                '}';
+    }
 }

@@ -3,16 +3,8 @@ package com.endavaapprentice.EventTicketSystem.domain.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name="[Location]")
 public class Location {
 
@@ -36,4 +28,65 @@ public class Location {
     @OneToOne(mappedBy = "location", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Venue venue;
+
+    public Location(Long locationID, String countryName,
+                    String cityName, String address,
+                    Venue venue) {
+        this.locationID = locationID;
+        this.countryName = countryName;
+        this.cityName = cityName;
+        this.address = address;
+        this.venue = venue;
+    }
+
+    public Long getLocationID() {
+        return locationID;
+    }
+
+    public void setLocationID(Long locationID) {
+        this.locationID = locationID;
+    }
+
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+        this.venue = venue;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "locationID=" + locationID +
+                ", countryName='" + countryName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", address='" + address + '\'' +
+                ", venue=" + venue +
+                '}';
+    }
 }
