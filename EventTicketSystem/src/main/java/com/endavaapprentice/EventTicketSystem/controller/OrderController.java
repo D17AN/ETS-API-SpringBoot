@@ -23,7 +23,6 @@ public class OrderController {
 
     @PostMapping("/{userID}/orders")
     public OrderDTO addOrderToUser(@PathVariable ("userID") Long userID, @RequestBody OrderRequestBody orderRequestBody){
-        return this.orderCompositeService.addOrderToUser(userID, orderRequestBody.getEventID(),
-                orderRequestBody.getTicketCategoryID(), orderRequestBody.getNumberOfTickets());
+        return this.orderCompositeService.addOrderToUser(userID, orderRequestBody);
     }
 }

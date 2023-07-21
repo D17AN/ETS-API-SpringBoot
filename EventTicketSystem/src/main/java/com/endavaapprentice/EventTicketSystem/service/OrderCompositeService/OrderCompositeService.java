@@ -1,10 +1,12 @@
 package com.endavaapprentice.EventTicketSystem.service.OrderCompositeService;
 
 import com.endavaapprentice.EventTicketSystem.domain.DTO.OrderDTO;
+import com.endavaapprentice.EventTicketSystem.domain.DTO.OrderRequestBody;
 import com.endavaapprentice.EventTicketSystem.domain.Entity.Event;
 import com.endavaapprentice.EventTicketSystem.domain.Entity.Order;
 import com.endavaapprentice.EventTicketSystem.domain.Entity.TicketCategory;
 import com.endavaapprentice.EventTicketSystem.domain.Entity.User;
+
 import com.endavaapprentice.EventTicketSystem.service.EventService.EventServiceInterface;
 import com.endavaapprentice.EventTicketSystem.service.OrderService.OrderServiceInterface;
 import com.endavaapprentice.EventTicketSystem.service.TicketCategoryService.TicketCategoryService;
@@ -32,11 +34,13 @@ public class OrderCompositeService implements OrderCompositeServiceInterface{
     }
 
     @Override
-    public OrderDTO addOrderToUser(Long userID, Long eventID, Long ticketCategoryID, Integer numberOfTickets) {
+    public OrderDTO addOrderToUser(Long userID, OrderRequestBody orderRequestBody) {
+
         User user = this.userService.getUserByID(userID);
-        Event event = this.eventService.getEventByID(eventID);
-        TicketCategory ticketCategory = this.ticketCategoryService.getTicketCategoryByID(ticketCategoryID);
+        Event event = this.eventService.getEventByID(orderRequestBody.getEventID());
+        TicketCategory ticketCategory = this.ticketCategoryService.getTicketCategoryByID(orderRequestBody.getTicketCategoryID());
         BigDecimal ticketPrice = ticketCategory.getPrice();
+        Integer numberOfTickets = orderRequestBody.getNumberOfTickets();
         BigDecimal ticketsTotalPrice = ticketPrice.multiply(BigDecimal.valueOf(numberOfTickets));
         Order order = new Order(
                 null, user,
@@ -47,12 +51,12 @@ public class OrderCompositeService implements OrderCompositeServiceInterface{
         this.save(order);
 
         return new OrderDTO(
-                eventID,
+                event.getEventID(),
                 order.getOrderedAt(),
-                order.getTicketCategory().getTicketCategoryID(),
+                ticketCategory.getTicketCategoryID(),
                 order.getNumberOfTickets(),
                 order.getTotalPrice()
-                );
+        );
     }
 
     public List<OrderDTO> getAllOrdersOfUser(Long userID) {
