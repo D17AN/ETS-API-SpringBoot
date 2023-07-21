@@ -2,6 +2,7 @@ package com.endavaapprentice.EventTicketSystem.service.UserService;
 
 import com.endavaapprentice.EventTicketSystem.domain.DTO.OrderDTO;
 import com.endavaapprentice.EventTicketSystem.domain.DTO.UserDTO;
+import com.endavaapprentice.EventTicketSystem.domain.Entity.Order;
 import com.endavaapprentice.EventTicketSystem.domain.Entity.User;
 import com.endavaapprentice.EventTicketSystem.repository.UserRepository.UserRepositoryInterface;
 import org.springframework.stereotype.Service;
@@ -25,20 +26,5 @@ public class UserService implements UserServiceInterface{
         @Override
         public User getUserByID(Long userID){
             return this.userRepository.findById(userID).get();
-        }
-
-        @Override
-        public List<OrderDTO> getAllOrdersOfUser(Long userID){
-            User user = this.userRepository.findById(userID).get();
-            UserDTO userDTO = new UserDTO(
-                    user.getUserName(),
-                    user.getUserEmail(),
-                    user.getOrdersList().stream().map(order -> {
-                        return new OrderDTO(order.getTicketCategory().getEvent().getEventID(),
-                                order.getOrderedAt(),
-                                order.getTicketCategory().getTicketCategoryID(),
-                                order.getTotalPrice());
-                    }).toList());
-            return userDTO.getOrdersList();
         }
 }
