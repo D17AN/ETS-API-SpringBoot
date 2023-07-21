@@ -5,13 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class TicketCategoryDTO {
-    private Long ticketCategoryId;
+    private Long ticketCategoryID;
     private String ticketType;
     private BigDecimal price;
 }

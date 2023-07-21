@@ -22,20 +22,20 @@ public class EventService implements EventServiceInterface{
     }
 
     @Override
-    public List<Event> getAllEvent(){
+    public List<Event> getAllEvents(){
         return this.eventRepository.findAll();
     }
 
     @Override
-    public Event getEventById(Long eventId){
-        return this.eventRepository.findById(eventId).get();
+    public Event getEventByID(Long eventID){
+        return this.eventRepository.findById(eventID).get();
     }
 
     @Override
-    public List<EventVenueEventTypeDTO> getAllEventByTypeAndVenue(Long venueId, String eventTypeName){
+    public List<EventVenueEventTypeDTO> getAllEventsByTypeAndVenue(Long venueID, String eventTypeName){
         List<EventVenueEventTypeDTO> eventVenueEventTypeDTOCollection = new ArrayList<>();
         List<Event> eventsList = this.eventRepository.findAll().stream().filter(event -> {
-            return event.getVenue().getVenueID() == venueId &&
+            return event.getVenue().getVenueID() == venueID &&
                     event.getEventType().getEventTypeName().equalsIgnoreCase(eventTypeName);
         }).toList();
 

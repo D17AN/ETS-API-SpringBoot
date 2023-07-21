@@ -5,6 +5,6 @@ import com.endavaapprentice.EventTicketSystem.domain.Entity.Location;
 import java.util.Collection;
 
 public interface LocationServiceInterface {
-    Collection<Location> getAllLocation();
-    Location getLocationById(Long locationId);
+    Collection<Location> getAllLocations();
+    Location getLocationByID(Long locationID);
 }

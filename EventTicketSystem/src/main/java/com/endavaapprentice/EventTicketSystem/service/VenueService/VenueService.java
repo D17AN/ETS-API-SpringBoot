@@ -4,7 +4,7 @@ import com.endavaapprentice.EventTicketSystem.domain.Entity.Venue;
 import com.endavaapprentice.EventTicketSystem.repository.VenueRepository.VenueRepositoryInterface;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class VenueService implements VenueServiceInterface{
@@ -16,12 +16,12 @@ public class VenueService implements VenueServiceInterface{
     }
 
     @Override
-    public Collection<Venue> getAllVenue(){
+    public List<Venue> getAllVenues(){
         return this.venueRepository.findAll();
     }
 
     @Override
-    public Venue getVenueById(Long venueId){
-        return this.venueRepository.findById(venueId).get();
+    public Venue getVenueByID(Long venueID){
+        return this.venueRepository.findById(venueID).get();
     }
 }

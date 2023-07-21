@@ -2,10 +2,9 @@ package com.endavaapprentice.EventTicketSystem.service.TicketCategoryService;
 
 import com.endavaapprentice.EventTicketSystem.domain.Entity.TicketCategory;
 import com.endavaapprentice.EventTicketSystem.repository.TicketCategoryRepository.TicketCategoryRepositoryInterface;
-import jakarta.persistence.Entity;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class TicketCategoryService implements TicketCategoryServiceInterface{
@@ -17,12 +16,12 @@ public class TicketCategoryService implements TicketCategoryServiceInterface{
     }
 
     @Override
-    public Collection<TicketCategory> getAllTicketCategory(){
+    public List<TicketCategory> getAllTicketCategories(){
         return this.ticketCategoryRepository.findAll();
     }
 
     @Override
-    public TicketCategory getTicketCategoryById(Long ticketCategoryId) {
-        return this.ticketCategoryRepository.findById(ticketCategoryId).get();
+    public TicketCategory getTicketCategoryByID(Long ticketCategoryID) {
+        return this.ticketCategoryRepository.findById(ticketCategoryID).get();
     }
 }

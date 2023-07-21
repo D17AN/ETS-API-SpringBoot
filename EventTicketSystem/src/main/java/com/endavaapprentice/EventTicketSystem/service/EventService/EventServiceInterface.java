@@ -6,7 +6,8 @@ import com.endavaapprentice.EventTicketSystem.domain.Entity.Event;
 import java.util.List;
 
 public interface EventServiceInterface {
-    List<Event> getAllEvent();
-    Event getEventById(Long eventId);
-    List<EventVenueEventTypeDTO> getAllEventByTypeAndVenue(Long venueId, String eventTypeName);
+    List<Event> getAllEvents();
+    Event getEventByID(Long eventID);
+    List<EventVenueEventTypeDTO> getAllEventsByTypeAndVenue(Long venueID, String eventTypeName);
 }
+

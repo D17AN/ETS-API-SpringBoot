@@ -5,7 +5,7 @@ import com.endavaapprentice.EventTicketSystem.domain.Entity.EventType;
 import com.endavaapprentice.EventTicketSystem.repository.EventTypeRepository.EventTypeRepositoryInterface;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class EventTypeService implements EventTypeServiceInterface{
@@ -17,13 +17,13 @@ public class EventTypeService implements EventTypeServiceInterface{
     }
 
     @Override
-    public Collection<EventType> getAllEventType(){
+    public List<EventType> getAllEventsType(){
         return this.eventTypeRepository.findAll();
     }
 
     @Override
-    public EventType getEventTypeById(Long eventTypeId){
-        return this.eventTypeRepository.getReferenceById(eventTypeId);
+    public EventType getEventTypeByID(Long eventTypeID){
+        return this.eventTypeRepository.getReferenceById(eventTypeID);
     }
 
     @Override

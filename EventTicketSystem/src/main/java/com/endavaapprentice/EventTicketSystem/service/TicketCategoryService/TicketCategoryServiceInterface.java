@@ -2,9 +2,9 @@ package com.endavaapprentice.EventTicketSystem.service.TicketCategoryService;
 
 import com.endavaapprentice.EventTicketSystem.domain.Entity.TicketCategory;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface TicketCategoryServiceInterface {
-    Collection<TicketCategory> getAllTicketCategory();
-    TicketCategory getTicketCategoryById(Long ticketCategoryId);
+    List<TicketCategory> getAllTicketCategories();
+    TicketCategory getTicketCategoryByID(Long ticketCategoryID);
 }
